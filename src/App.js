@@ -108,13 +108,12 @@ function Search() {
 }
 
 function Main({ children }) {
-
   return <main className="main">
     {children}
   </main>
 }
 
-function Box({ element }) {
+function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
   return <div className="box">
     <button
@@ -124,7 +123,7 @@ function Box({ element }) {
       {isOpen ? "–" : "+"}
     </button>
     {isOpen && (
-      element
+      children
     )}
   </div>
 }
@@ -159,7 +158,7 @@ function MovieList({ movies }) {
 
 function Movie({ movie }) {
   return <li key={movie.imdbID}>
-    <img src={movie.Poster} alt={`${movie.Title} poster`} />
+    <img src={movie.Poster} alt={`${movie.Title} Poster`} />
     <h3>{movie.Title}</h3>
     <div>
       <p>
