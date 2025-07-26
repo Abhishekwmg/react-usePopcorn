@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Logo from "./Logo";
 import Search from "./Search";
@@ -58,8 +58,27 @@ const tempWatchedData = [
 ];
 
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
+  const [watched, setWatched] = useState([]);
+  const query = "mission impossible";
+
+  useEffect(function () {
+    async function fetchMovies() {
+      // const API_URL = `http://www.omdbapi.com/?apikey=${api_key}&t=Inception`
+      // console.log(API_URL)
+      // const workingID = `https://www.omdbapi.com/?apikey=${api_key}&t=Inception`
+
+      const api_key = "4b4c6b8"
+      const res = await fetch(`http://www.omdbapi.com/?apikey=${api_key}&s=${query}`);
+      const data = await res.json();
+      setMovies(data.Search);
+      console.log(movies)
+      // .then((res) => res.json())
+      // .then(data => console.log(data));
+    }
+    fetchMovies();
+  }, []);
+
 
   return (
     <>

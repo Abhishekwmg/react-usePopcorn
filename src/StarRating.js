@@ -22,7 +22,10 @@ const starStyle = {
     cursor: "pointer"
 }
 
-export default function StarRating({ maxRating = 5, color = "#FFEA00", size = "48" }) {
+export default function StarRating({
+    maxRating = 5,
+    color = "#FFEA00",
+    size = 48 }) {
 
     const [rating, setRating] = useState(0);
     const [tempRating, setTempRating] = useState(0);
