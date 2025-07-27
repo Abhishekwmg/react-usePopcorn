@@ -25,13 +25,16 @@ const starStyle = {
 export default function StarRating({
     maxRating = 5,
     color = "#FFEA00",
-    size = 48 }) {
+    size = 48,
+    onSetRating,
+}) {
 
     const [rating, setRating] = useState(0);
     const [tempRating, setTempRating] = useState(0);
 
     function handleRating(rating) {
         setRating(rating);
+        onSetRating(rating);
     }
 
     const textStyle = {

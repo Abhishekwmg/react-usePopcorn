@@ -1,6 +1,6 @@
-export default function WatchedMovie({ movie }) {
+export default function WatchedMovie({ movie, onHandleWatchedDelete }) {
     return <li key={movie.imdbID}>
-        <img src={movie.Poster} alt={`${movie.Title} poster`} />
+        <img src={movie.poster} alt={`${movie.title} poster`} />
         <h3>{movie.Title}</h3>
         <div>
             <p>
@@ -15,6 +15,7 @@ export default function WatchedMovie({ movie }) {
                 <span>⏳</span>
                 <span>{movie.runtime} min</span>
             </p>
+            <button className="btn-delete" onClick={() => onHandleWatchedDelete(movie.imdbID)}>X</button>
         </div>
     </li>
 }

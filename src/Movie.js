@@ -1,5 +1,5 @@
-export default function Movie({ movie }) {
-    return <li key={movie.imdbID}>
+export default function Movie({ movie, onHandleSelectMovie }) {
+    return <li key={movie.imdbID} onClick={() => { onHandleSelectMovie(movie.imdbID) }}>
         <img src={movie.Poster} alt={`${movie.Title} Poster`} />
         <h3>{movie.Title}</h3>
         <div>
