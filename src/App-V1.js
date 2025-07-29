@@ -22,7 +22,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const [watched, setWatched] = useState(function () {
+  const [watched, setWatched] = useState(() => {
     const storedValue = localStorage.getItem('watched');
     return JSON.parse(storedValue);
   });
